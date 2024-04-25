@@ -53,26 +53,37 @@ export default function App() {
   return (
     <>
      
+     <div className="flex justify-center items-center h-screen">
+  <div className="bg-white p-8 rounded-lg shadow-md w-80">
+    <h1 className="text-2xl font-bold mb-4">Pokémon Information</h1>
+    <select
+      className="w-full border rounded-md px-4 py-2 mb-4"
+      value={selectedPokemon}
+      onChange={handleSelectChange}
+    >
+      {pokemonList.map((pokemon) => (
+        <option key={pokemon} value={pokemon}>
+          {pokemon}
+        </option>
+      ))}
+    </select>
+    {loading && <p>Loading...</p>}
+    {error && <p className="text-red-500">{error}</p>}
+    {pokemonData && (
       <div>
-        <h1>Pokémon Information</h1>
-        <select value={selectedPokemon} onChange={handleSelectChange}>
-          {pokemonList.map((pokemon) => (
-            <option key={pokemon} value={pokemon}>
-              {pokemon}
-            </option>
-          ))}
-        </select>
-        {loading && <p>Loading...</p>}
-        {error && <p>{error}</p>}
-        {pokemonData && (
-          <div>
-            <h2>{pokemonData.name}</h2>
-            <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
-            <p>Height: {pokemonData.height}</p>
-            <p>Weight: {pokemonData.weight}</p>
-          </div>
-        )}
+        <h2 className="text-xl font-bold mb-2">{pokemonData.name}</h2>
+        <img
+          className="w-full h-auto mb-2"
+          src={pokemonData.sprites.front_default}
+          alt={pokemonData.name}
+        />
+        <p className="mb-2">Height: {pokemonData.height}</p>
+        <p className="mb-2">Weight: {pokemonData.weight}</p>
       </div>
+    )}
+  </div>
+</div>
+
     </>
   );
 }
