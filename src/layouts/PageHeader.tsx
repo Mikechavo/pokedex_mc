@@ -25,6 +25,7 @@ export default function PageHeader() {
   }));
 
   return (
+    <div className="header-container" style={{ backgroundImage: 'url("https://mmos.com/wp-content/uploads/2021/07/pokemon-unite-key-art-banner.jpg")', backgroundSize: 'cover' }}>
     <Disclosure as="nav" className="white">
       {({ open }) => (
         <>
@@ -153,5 +154,6 @@ export default function PageHeader() {
         </>
       )}
     </Disclosure>
+    </div>
   )
 }

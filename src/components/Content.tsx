@@ -1,35 +1,23 @@
-
 import { Routes, Route } from "react-router-dom"
 import HomePage from "./HomePage"
 import Search from "./Search"
-// import Journey from "./Journey"
-// import Projects from "./Projects"
-// import Resume from "./Resume"
-// import ContactMe from "./ContactMe"
+import EnergyTypePage from './EnergyTypePokemonPage'; // Make sure to import the correct file
 
-// type ContentProps = {
-//  id: string
-//  title: string
-// }
-// ({id, title}: ContentProps)
 const Content = () => {
-
- return(
-  <div className="overflow-y-auto flex-grow">
-   <main>
+  return (
+    <div className="overflow-y-auto flex-grow">
+      <main>
         <div>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/search" element={<Search />} />
-            {/* <Route path="/myjourney" element={<Journey />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/contactme" element={<ContactMe />} /> */}
+            {/* Define the route for displaying Pokémon of a specific energy type */}
+            <Route path="/energy/:energyType" element={<EnergyTypePage />} />
           </Routes>
         </div>
       </main>
-  </div>
- )
+    </div>
+  )
 }
 
 export default Content
