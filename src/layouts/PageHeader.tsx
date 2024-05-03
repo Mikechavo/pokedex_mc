@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import SWE from '../assets/SWE.png';
 import pokeball from '../assets/pokeball.png';
 import { Mail, Github, Linkedin, Search,  Info  } from "lucide-react";
 import { NavLink, useLocation } from 'react-router-dom';

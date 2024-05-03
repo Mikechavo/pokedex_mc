@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-
 export default function Search() {
   const [pokemonList, setPokemonList] = useState<string[]>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<string>('pikachu');
@@ -52,38 +51,45 @@ export default function Search() {
 
   return (
     <>
-     
-     <div className="flex justify-center items-center h-screen">
-  <div className="bg-white p-8 rounded-lg shadow-md w-80">
-    <h1 className="text-2xl font-bold mb-4">Pokémon Information</h1>
-    <select
-      className="w-full border rounded-md px-4 py-2 mb-4"
-      value={selectedPokemon}
-      onChange={handleSelectChange}
-    >
-      {pokemonList.map((pokemon) => (
-        <option key={pokemon} value={pokemon}>
-          {pokemon}
-        </option>
-      ))}
-    </select>
-    {loading && <p>Loading...</p>}
-    {error && <p className="text-red-500">{error}</p>}
-    {pokemonData && (
-      <div>
-        <h2 className="text-xl font-bold mb-2">{pokemonData.name}</h2>
-        <img
-          className="w-full h-auto mb-2"
-          src={pokemonData.sprites.front_default}
-          alt={pokemonData.name}
-        />
-        <p className="mb-2">Height: {pokemonData.height}</p>
-        <p className="mb-2">Weight: {pokemonData.weight}</p>
-      </div>
-    )}
-  </div>
-</div>
+      <div className="flex justify-center items-center h-screen">
+        <div className="bg-white p-8 rounded-lg shadow-md w-80">
+          <h1 className="text-2xl font-bold mb-4">Pokémon Information</h1>
+          <select
+            className="w-full border rounded-md px-4 py-2 mb-4"
+            value={selectedPokemon}
+            onChange={handleSelectChange}
+          >
+            {pokemonList.map((pokemon) => (
+              <option key={pokemon} value={pokemon}>
+                {pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}
+              </option>
+            ))}
+          </select>
 
+          {loading && <p>Loading...</p>}
+          {error && <p className="text-red-500">{error}</p>}
+          {pokemonData && (
+            <div>
+              <h2 className="text-xl font-bold mb-2" style={{ textTransform: 'uppercase' }}>{pokemonData.name}</h2>
+
+              <img
+                className="w-full h-auto mb-2"
+                src={pokemonData.sprites.front_default}
+                alt={pokemonData.name}
+              />
+              <p className="mb-2">Height: {pokemonData.height}</p>
+              <p className="mb-2">Weight: {pokemonData.weight}</p>
+              <p className="mb-2">HP: {pokemonData.stats[0].base_stat}</p>
+              <p className="mb-2">Attack: {pokemonData.stats[1].base_stat}</p>
+              <p className="mb-2">Defense: {pokemonData.stats[2].base_stat}</p>
+              <p className="mb-2">Special Attack: {pokemonData.stats[3].base_stat}</p>
+              <p className="mb-2">Special Defense: {pokemonData.stats[4].base_stat}</p>
+              <p className="mb-2">Speed: {pokemonData.stats[5].base_stat}</p>
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 }
+

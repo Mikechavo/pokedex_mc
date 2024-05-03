@@ -2,6 +2,8 @@ import { twMerge } from "tailwind-merge";
 import { buttonStyles } from "../components/Button";
 import masterball from "../assets/masterball.png";
 
+import { Link } from 'react-router-dom';
+
 const Sidebar = () => {
   type SmallSidebarItemProps = {
     imageSrc: string;
@@ -12,8 +14,8 @@ const Sidebar = () => {
   const SmallSidebarItem = ({ imageSrc, title, websiteUrl }: SmallSidebarItemProps) => {
     return (
       <div className="grid gap-4">
-        <a
-          href={websiteUrl}
+        <Link
+          to={websiteUrl} // Use Link instead of anchor tag
           title="Official Pokémon Website"
           className={twMerge(
             buttonStyles({ variant: "ghost" }),
@@ -21,8 +23,8 @@ const Sidebar = () => {
           )}
         >
           <img src={imageSrc} alt={title} className="w-6 h-6 object-cover" />
-          <span className="text-sm">Official Website</span>
-        </a>
+          <span className="text-sm">Energy</span>
+        </Link>
       </div>
     );
   };
@@ -35,7 +37,7 @@ const Sidebar = () => {
       <SmallSidebarItem
         imageSrc={masterball}
         title="Official Pokémon Website"
-        websiteUrl="https://www.pokemon.com/us"
+        websiteUrl="/" // Update websiteUrl to "/"
       />
     </aside>
   );
