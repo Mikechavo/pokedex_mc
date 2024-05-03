@@ -10,7 +10,6 @@ const energys = [
  {
    id: 2,
    name: 'Dark',
-  
    imageSrc: 'src/assets/dark.webp',
    imageAlt: "Dark Type.",
  },
