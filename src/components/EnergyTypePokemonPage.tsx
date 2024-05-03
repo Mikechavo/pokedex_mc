@@ -1,15 +1,13 @@
-import { Sidebar } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams} from 'react-router-dom';
 
 function EnergyTypePokemonPage() {
-  const { energyType } = useParams();
+  const { energyType } = useParams<{ energyType: string }>(); // Define type for energyType
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const normalizedEnergyType = energyType.toLowerCase();
-
+  const normalizedEnergyType = energyType ? energyType.toLowerCase() : ''; // Provide a default value for energyType
 
   useEffect(() => {
     const fetchPokemonOfType = async () => {
@@ -79,10 +77,9 @@ function EnergyTypePokemonPage() {
   }, [pokemonList]);
 
   return (
-    
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{energyType.toUpperCase()} Pokémon</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">{energyType ? energyType.toUpperCase() : ''} Pokémon</h2>
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {!loading && !error && (

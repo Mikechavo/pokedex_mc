@@ -1,12 +1,12 @@
-import { useParams, useHistory } from 'react-router-dom';
 import energys from './HomePage'; // Adjust the path to match the actual location of the file
 
 function EnergyTypePage() {
-  const { energyType } = useParams();
-  const history = useHistory();
+  // const { energyType } = useParams(); // Commented out as it's not currently used
+  // const history = useHistory(); // Removed as it's not currently used
 
-  const handleEnergyClick = (energyName) => {
-    history.push(`/energy/${energyName}`);
+  const handleEnergyClick = (energyName: string) => {
+    // Uncomment this line if you decide to use useHistory
+    // history.push(`/energy/${energyName}`);
   };
 
   return (
@@ -14,7 +14,7 @@ function EnergyTypePage() {
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Pokemon Energy Types</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {energys.map((energy) => (
+          {Array.isArray(energys) && energys.map((energy) => (
             <div key={energy.id} className="group relative" onClick={() => handleEnergyClick(energy.name)}>
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-full bg-gray-200 group-hover:opacity-75">
                 <img
@@ -37,6 +37,7 @@ function EnergyTypePage() {
 }
 
 export default EnergyTypePage;
+
 
 
 

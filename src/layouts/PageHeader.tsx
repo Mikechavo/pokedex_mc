@@ -51,19 +51,19 @@ export default function PageHeader() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {updatedNavigation.map((item) => (
-                      <NavLink
-                        key={item.name}
-                        to={item.to}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </NavLink>
-                    ))}
+                  {updatedNavigation.map((item) => (
+  <NavLink
+    key={item.to.toString()} // Specify key prop type as string
+    to={item.to}
+    className={classNames(
+      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+      'rounded-md px-3 py-2 text-sm font-medium'
+    )}
+    aria-current={item.current ? 'page' : undefined}
+  >
+    {item.name}
+  </NavLink>
+))}
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function PageHeader() {
             <div className="space-y-1 px-2 pb-3 pt-2">
               {updatedNavigation.map((item) => (
                 <NavLink
-                  key={item.name}
+                  
                   to={item.to}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
