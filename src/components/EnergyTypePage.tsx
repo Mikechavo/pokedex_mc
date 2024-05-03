@@ -4,7 +4,8 @@ function EnergyTypePage() {
   // const { energyType } = useParams(); // Commented out as it's not currently used
   // const history = useHistory(); // Removed as it's not currently used
 
-  const handleEnergyClick = (energyName: string) => {
+  const handleEnergyClick = () => {
+    // No need for energyName parameter as it's not being used
     // Uncomment this line if you decide to use useHistory
     // history.push(`/energy/${energyName}`);
   };
@@ -15,7 +16,8 @@ function EnergyTypePage() {
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Pokemon Energy Types</h2>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {Array.isArray(energys) && energys.map((energy) => (
-            <div key={energy.id} className="group relative" onClick={() => handleEnergyClick(energy.name)}>
+            <div key={energy.id} className="group relative" onClick={handleEnergyClick}>
+              {/* Removed energyName parameter from handleEnergyClick */}
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-full bg-gray-200 group-hover:opacity-75">
                 <img
                   src={energy.imageSrc}
@@ -37,6 +39,7 @@ function EnergyTypePage() {
 }
 
 export default EnergyTypePage;
+
 
 
 
