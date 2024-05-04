@@ -56,14 +56,12 @@ export default function PageHeader() {
     key={item.to.toString()} // Specify key prop type as string
     to={item.to}
     className={classNames(
-      item.current ? 'bg-gray-400 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
       'rounded-md px-3 py-2 text-sm font-medium'
     )}
     aria-current={item.current ? 'page' : undefined}
   >
-    <span className="text-black"> {/* Apply text-black class */}
-      {item.name}
-    </span>
+    {item.name}
   </NavLink>
 ))}
                   </div>
@@ -97,7 +95,7 @@ export default function PageHeader() {
                             onClick={() => window.open("mailto:mchavez76@yahoo.com")}
                           >
                             <Mail className="mr-2" />
-                            <span className="text-black">Email</span> {/* Apply text-black class */}
+                            <span>Email</span>
                           </a>
                         )}
                       </Menu.Item>
@@ -110,7 +108,7 @@ export default function PageHeader() {
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex items-center')}
                           >
                             <Github className="mr-2" />
-                            <span className="text-black">GitHub</span> {/* Apply text-black class */}
+                            <span>GitHub</span>
                           </a>
                         )}
                       </Menu.Item>
@@ -123,7 +121,7 @@ export default function PageHeader() {
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 flex items-center')}
                           >
                             <Linkedin className="mr-2" />
-                            <span className="text-black">LinkedIn</span> {/* Apply text-black class */}
+                            <span>LinkedIn</span>
                           </a>
                         )}
                       </Menu.Item>
@@ -147,9 +145,7 @@ export default function PageHeader() {
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
-                  <span className="text-black"> {/* Apply text-black class */}
-                    {item.name}
-                  </span>
+                  {item.name}
                 </NavLink>
               ))}
             </div>
