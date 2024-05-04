@@ -1,30 +1,29 @@
 import { twMerge } from "tailwind-merge";
 import { buttonStyles } from "../components/Button";
-import masterball from "../assets/masterball.png";
-
+import { Home } from 'lucide-react'; // Import the Home icon from lucide-react
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   type SmallSidebarItemProps = {
-    imageSrc: string;
+    icon: JSX.Element; // Change imageSrc type to JSX.Element
     title: string;
     websiteUrl: string;
   };
 
-  const SmallSidebarItem = ({ imageSrc, title, websiteUrl }: SmallSidebarItemProps) => {
+  const SmallSidebarItem = ({ icon, title, websiteUrl }: SmallSidebarItemProps) => {
     return (
       <div className="grid gap-4">
         <Link
-          to={websiteUrl} // Use Link instead of anchor tag
-          title="Official Pokémon Website"
+          to={websiteUrl}
+          title={title}
           className={twMerge(
             buttonStyles({ variant: "ghost" }),
             "py-4 px-1 grid justify-items-start rounded-full overflow-hidden gap-1"
           )}
         >
-          <img src={imageSrc} alt={title} className="w-10 h-10 object-cover" />
-          <span className="text-sm text-gray-700 text-center font-bold">Energy</span>
-          <span className="text-sm text-gray-700 text-center font-bold">Page</span>
+          {icon} {/* Use the icon directly */}
+          {/* <span className="text-sm text-gray-700 text-center font-bold">Energy</span>
+          <span className="text-sm text-gray-700 text-center font-bold">Page</span> */}
         </Link>
       </div>
     );
@@ -36,8 +35,8 @@ const Sidebar = () => {
       style={{ width: "100px", maxHeight: "calc(100vh - 64px)" }}
     >
       <SmallSidebarItem
-        imageSrc={masterball}
-        title="Official Pokémon Website"
+        icon={<Home />} // Use the Home icon component
+        title="Home"
         websiteUrl="/" // Update websiteUrl to "/"
       />
     </aside>
@@ -45,3 +44,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
