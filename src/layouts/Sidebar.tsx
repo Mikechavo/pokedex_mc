@@ -22,8 +22,9 @@ const Sidebar = () => {
             "py-4 px-1 grid justify-items-start rounded-full overflow-hidden gap-1"
           )}
         >
-          <img src={imageSrc} alt={title} className="w-6 h-6 object-cover" />
-          <span className="text-sm">Energy</span>
+          <img src={imageSrc} alt={title} className="w-10 h-10 object-cover" />
+          <span className="text-sm text-gray-700 text-center font-bold">Energy</span>
+          <span className="text-sm text-gray-700 text-center font-bold">Page</span>
         </Link>
       </div>
     );
